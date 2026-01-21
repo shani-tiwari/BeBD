@@ -1,10 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const { registerUser, loginUser } = require("../controller/auth.controller");
+const { authUser } = require("../middleware/auth.middleware");
 
-router.get('/auth', (req, res) => {
-    res.json({
-        msg: 'done',
-    })
-})
+router.post("/auth/login", loginUser);
 
-module.exports = router
+router.post("/auth/signup", registerUser);
+
+module.exports = router;
