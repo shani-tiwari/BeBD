@@ -1,8 +1,10 @@
 const userModel = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
+// identifies the user 
 async function authUser(req, res, next) {
   try {
+    
     const { token } = req.cookies;
 
     if (!token)
@@ -16,6 +18,7 @@ async function authUser(req, res, next) {
 
     req.user = user;
     return next();
+
   } catch (error) {
     return res.status(401).json({ msg: "unauthorized: invalid token" });
   }

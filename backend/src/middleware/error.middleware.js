@@ -6,7 +6,7 @@ function errorMiddleware(err, req, res, next) {
 
   res.status(status).json({
     msg: message,
-    error: process.env.NODE_ENV === "development" ? err.stack : {},
+    error: process.env.NODE_ENV === "development" ? err.stack : {}, 
   });
 }
 

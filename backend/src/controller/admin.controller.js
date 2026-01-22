@@ -2,7 +2,8 @@ const userModel = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-async function registerUser(req, res, next) {
+// admin controller - powers of admin
+async function registerAdmin(req, res, next) {
   try {
     const {
       fullName: { firstName, lastName },
@@ -19,6 +20,7 @@ async function registerUser(req, res, next) {
       fullName: { firstName, lastName },
       email,
       password: hashPassword,
+      role: "admin",
     });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
@@ -42,15 +44,19 @@ async function registerUser(req, res, next) {
   }
 }
 
-async function loginUser(req, res, next) {
+async function loginAdmin(req, res, next) {
   try {
     const { email, password } = req.body;
 
     const user = await userModel.findOne({ email }).select("+password");
     if (!user) return res.status(400).json({ msg: "invalid credentials" });
 
-    const isValid = await bcrypt.compare(password, user.password);
-    if (!isValid) return res.status(400).json({ msg: "invalid credentials" });
+    if (user.role !== "admin")
+      return res.status(400).json({ msg: "Not an admin" });
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid)
+      return res.status(400).json({ msg: "invalid credentials" });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     res.cookie("token", token, {
@@ -73,6 +79,6 @@ async function loginUser(req, res, next) {
 }
 
 module.exports = {
-  registerUser,
-  loginUser,
+  registerAdmin,
+  loginAdmin,
 };
