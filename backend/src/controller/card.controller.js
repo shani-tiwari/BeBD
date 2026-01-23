@@ -73,6 +73,17 @@ const viewCardBySlug = async(req, res, next) => {
     }   
 };
 
+const likeCard = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const card = await cardModel.findByIdAndUpdate(id, { $inc: {likes: 1}}, {new: true});
+        if(!card) return res.status(400).json({msg: "card not found"});
+        res.json({likes: card.likes});
+    } catch (e) {
+        res.status(500).json({msg: "server error"});
+    }
+};
+
 const updateCard = async(req, res, next) => {
     try { 
         const {id} = req.params;
@@ -94,4 +105,4 @@ const deleteCard = async(req, res, next) => {
     }
 };
 
-module.exports = { createCard, viewCards, viewCardBySlug, updateCard, deleteCard };
+module.exports = { createCard, viewCards, viewCardBySlug, likeCard, updateCard, deleteCard };

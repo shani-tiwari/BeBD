@@ -10,3 +10,5 @@
    - pro route - role('pro', 'admin');
 
    - login, register doesn't touch role as it default 'user', admin's specified admin in db 
+
+- backend likes setup, frontend remaining

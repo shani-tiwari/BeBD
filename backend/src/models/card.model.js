@@ -12,7 +12,7 @@ const CardSchema = new mongoose.Schema(
 
     image: { url: String, alt: String },
 
-    likesCount: { type: Number, default: 0 },
+    likes: { type: Number, default: 0 },
 
     category: {
       type: String,
