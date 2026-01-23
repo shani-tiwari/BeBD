@@ -34,7 +34,6 @@ async function registerUser(req, res, next) {
       user: {
         fullName: user.fullName,
         email: user.email,
-        role: user.role,
       },
     });
   } catch (error) {
@@ -65,7 +64,6 @@ async function loginUser(req, res, next) {
       email: user.email,
       id: user._id,
       fullName: user.fullName,
-      role: user.role,
     });
   } catch (error) {
     next(error);
