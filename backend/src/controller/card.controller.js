@@ -55,7 +55,7 @@ const createCard = async (req, res, next) => {
 
 const viewCards = async(req, res, next) => {
     try {
-        const cards = await cardModel.find();
+        const cards = await cardModel.find({ isDeleted: false });
         return res.status(200).json({msg: "cards fetched successfully", cards});
     } catch (error) {
         next(error);
@@ -65,12 +65,10 @@ const viewCards = async(req, res, next) => {
 const viewCardById = async(req, res, next) => {
     try {
         const {id} = req.params;
-        const result = await cardModel.findById(id);
-        if(!result) return res.status(404).json({msg: "card not found"});
+        const card = await cardModel.findOne({ _id: id, isDeleted: false });
+        if(!card) return res.status(404).json({msg: "card not found"});
 
-        const cards = result.filter(card => card.isDeleted === false);
-
-        return res.status(200).json({msg: "cards fetched successfully", cards});
+        return res.status(200).json({msg: "cards fetched successfully", cards: card});
     } catch (error) {
         next(error);
     }   
@@ -103,6 +101,8 @@ const deleteCard = async(req, res, next) => {
     try {
         const {id} = req.params;
         const card = await cardModel.findById(id); 
+        if (!card) return res.status(404).json({ msg: "card not found" });
+        
         card.isDeleted = true;
         await card.save();  
         return res.status(200).json({msg: "card deleted successfully", card});
