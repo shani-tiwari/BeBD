@@ -10,8 +10,12 @@ async function registerUser(req, res, next) {
       password,
     } = req.body;
 
+    if(!firstName || !lastName || !email || !password) 
+      return res.status(400).json({ msg: "all fields are required" });
+
     const isUserExist = await userModel.findOne({ email });
-    if (isUserExist) return res.status(400).json({ msg: "user already exist" });
+    if (isUserExist) 
+      return res.status(400).json({ msg: "user already exist" });
 
     const hashPassword = await bcrypt.hash(password, 10);
 
@@ -46,10 +50,12 @@ async function loginUser(req, res, next) {
     const { email, password } = req.body;
 
     const user = await userModel.findOne({ email }).select("+password");
-    if (!user) return res.status(400).json({ msg: "invalid credentials" });
+    if (!user) 
+      return res.status(400).json({ msg: "invalid credentials" });
 
     const isValid = await bcrypt.compare(password, user.password);
-    if (!isValid) return res.status(400).json({ msg: "invalid credentials" });
+    if (!isValid) 
+      return res.status(400).json({ msg: "invalid credentials" });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     res.cookie("token", token, {

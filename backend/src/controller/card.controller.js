@@ -62,11 +62,14 @@ const viewCards = async(req, res, next) => {
     }   
 };
 
-const viewCardBySlug = async(req, res, next) => {
+const viewCardById = async(req, res, next) => {
     try {
         const {id} = req.params;
-        const cards = await cardModel.findById(id);
-        if(!cards) return res.status(404).json({msg: "card not found"});
+        const result = await cardModel.findById(id);
+        if(!result) return res.status(404).json({msg: "card not found"});
+
+        const cards = result.filter(card => card.isDeleted === false);
+
         return res.status(200).json({msg: "cards fetched successfully", cards});
     } catch (error) {
         next(error);
@@ -95,14 +98,17 @@ const updateCard = async(req, res, next) => {
     }
 };
 
+//  soft delete implemented 
 const deleteCard = async(req, res, next) => {
     try {
         const {id} = req.params;
-        const card = await cardModel.findByIdAndDelete(id); 
+        const card = await cardModel.findById(id); 
+        card.isDeleted = true;
+        await card.save();  
         return res.status(200).json({msg: "card deleted successfully", card});
     } catch (error) {
         next(error);
     }
 };
 
-module.exports = { createCard, viewCards, viewCardBySlug, likeCard, updateCard, deleteCard };
+module.exports = { createCard, viewCards, viewCardById, likeCard, updateCard, deleteCard };

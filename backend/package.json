@@ -12,7 +12,6 @@
   "type": "commonjs",
   "dependencies": {
     "@google/genai": "^1.38.0",
-    "@imagekit/nodejs": "^7.2.1",
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
