@@ -104,6 +104,10 @@ function googleAuth() {
               googleId: profile.id,
               role: "user",
             });
+          } else if (!user.googleId) {
+            // Link googleId to existing account
+            user.googleId = profile.id;
+            await user.save();
           }
           return done(null, user);
         } catch (error) {

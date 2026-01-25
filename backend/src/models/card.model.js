@@ -14,9 +14,16 @@ const CardSchema = new mongoose.Schema(
 
     likes: { type: Number, default: 0 },
 
+    likedBy: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+
     category: {
       type: String,
-      enum: ["frontend", "backend", "fullstack", "other"],
+      enum: ["frontend", "backend", "fullstack"],
       required: true,
     },
 
@@ -38,6 +45,9 @@ const CardSchema = new mongoose.Schema(
     ],
 
     skills: [String],
+
+    learn: [String],
+
     version: {
       type: Number,
       default: 1,
@@ -62,6 +72,17 @@ const CardSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
+
+CardSchema.pre("save", function (next) {
+  if (this.isModified("title") && !this.slug) {
+    this.slug = this.title
+      .toLowerCase()
+      .split(" ")
+      .join("-")
+      .replace(/[^\w-]+/g, "");
+  }
+  next();
+});
 
 const cardModel = mongoose.model("Card", CardSchema);
 module.exports = cardModel;
