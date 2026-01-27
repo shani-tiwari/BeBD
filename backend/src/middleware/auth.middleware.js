@@ -1,11 +1,18 @@
 const userModel = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
-// identifies the user 
+// identifies the user
 async function authUser(req, res, next) {
   try {
-    
-    const { token } = req.cookies;
+    let token = req.cookies.token;
+
+    if (
+      !token &&
+      req.headers.authorization &&
+      req.headers.authorization.startsWith("Bearer ")
+    ) {
+      token = req.headers.authorization.split(" ")[1];
+    }
 
     if (!token)
       return res.status(401).json({ msg: "unauthorized: no token provided" });
@@ -18,7 +25,6 @@ async function authUser(req, res, next) {
 
     req.user = user;
     return next();
-
   } catch (error) {
     return res.status(401).json({ msg: "unauthorized: invalid token" });
   }

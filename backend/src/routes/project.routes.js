@@ -4,42 +4,46 @@ const authUser = require("../middleware/auth.middleware");
 const roleMiddleware = require("../middleware/role.middleware");
 const validateId = require("../middleware/validateId.middleware");
 const {
-  createCard,
-  viewCards,
-  updateCard,
-  deleteCard,
-  likeCard,
-  viewCardById,
-} = require("../controller/card.controller");
+  createProject,
+  viewProjects,
+  updateProject,
+  deleteProject,
+  likeProject,
+  viewProjectById,
+} = require("../controller/project.controller");
 const imagekitAuth = require("../controller/image.controller");
 
 // routes - create, view, update delete
-router.get("/view-cards", viewCards);
-router.get("/view-card/:id", validateId, viewCardById);
-router.post("/view-card/:id/like", authUser, validateId, likeCard);
+router.get("/view-projects", viewProjects);
+router.get("/view-project/:id", validateId, viewProjectById);
+// router.get("/view-projects?category=", validateId, viewProjectById);
+router.post("/view-project/:id/like", authUser, validateId, likeProject);
 
+
+// imagekit
 router.get("/auth/imagekit", authUser, imagekitAuth);
+
 
 // admin powers
 router.post(
-  "/admin/create-card",
+  "/admin/create-project",
   authUser,
   roleMiddleware(["admin"]),
-  createCard,
+  createProject,
 );
 router.put(
-  "/admin/update-card/:id",
+  "/admin/update-project/:id",
   authUser,
   roleMiddleware(["admin"]),
   validateId,
-  updateCard,
+  updateProject,
 );
 router.delete(
-  "/admin/delete-card/:id",
+  "/admin/delete-project/:id",
   authUser,
   roleMiddleware(["admin"]),
   validateId,
-  deleteCard,
+  deleteProject,
 );
 
 module.exports = router;

@@ -8,7 +8,7 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 async function registerUser(req, res, next) {
   try {
     const { fullName, email, password } = req.body;
-    if (!fullName?.firstName || !email || !password) {
+    if (!fullName || !fullName.firstName || !email || !password) {
       return res.status(400).json({ msg: "All fields required" });
     }
 

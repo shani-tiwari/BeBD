@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const CardSchema = new mongoose.Schema(
+const ProjectSchema = new mongoose.Schema(
   {
     slug: { type: String, unique: true, lowercase: true },
 
@@ -73,16 +73,17 @@ const CardSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-CardSchema.pre("save", function (next) {
+ProjectSchema.pre("save", function (next) {
   if (this.isModified("title") && !this.slug) {
     this.slug = this.title
       .toLowerCase()
-      .split(" ")
+      .trim()
+      .split(/\s+/)
       .join("-")
       .replace(/[^\w-]+/g, "");
   }
   next();
 });
 
-const cardModel = mongoose.model("Card", CardSchema);
-module.exports = cardModel;
+const ProjectModel = mongoose.model("Project", ProjectSchema);
+module.exports = ProjectModel;
