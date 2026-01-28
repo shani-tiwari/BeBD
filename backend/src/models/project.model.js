@@ -12,7 +12,7 @@ const ProjectSchema = new mongoose.Schema(
 
     image: { url: String, alt: String },
 
-    likes: { type: Number, default: 0 },
+    likes: { type: Number, default: 0 }, 
 
     likedBy: [
       {
