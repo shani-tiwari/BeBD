@@ -61,14 +61,17 @@ const createProject = async (req, res, next) => {
 
 const viewProjects = async (req, res, next) => {
   try {
-    const Projects = await ProjectModel.find({
+    const Projects = await ProjectModel.find
+    ({
       isDeleted: false,
-      status: "published",
+      // status: "published",
     });
+    if(Projects.length === 0) return res.status(400).json({msg: "projects are empty"});
     return res
       .status(200)
-      .json({ msg: "Projects fetched successfully", Projects });
+      .json({ msg: "Projects fetched successfully", Projects});
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };

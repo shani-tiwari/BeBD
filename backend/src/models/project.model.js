@@ -73,17 +73,17 @@ const ProjectSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-ProjectSchema.pre("save", function (next) {
-  if (this.isModified("title") && !this.slug) {
-    this.slug = this.title
-      .toLowerCase()
-      .trim()
-      .split(/\s+/)
-      .join("-")
-      .replace(/[^\w-]+/g, "");
-  }
-  next();
-});
+// ProjectSchema.pre("save", function (next) {
+//   if (this.isModified("title") && !this.slug) {
+//     this.slug = this.title
+//       .toLowerCase()
+//       .trim()
+//       .split(/\s+/)
+//       .join("-")
+//       .replace(/[^\w-]+/g, "");
+//   }
+//   next();
+// });
 
 const ProjectModel = mongoose.model("Project", ProjectSchema);
 module.exports = ProjectModel;
