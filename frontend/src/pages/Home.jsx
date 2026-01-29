@@ -67,20 +67,26 @@ export default function Home() {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4 bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-indigo-400">
+          <h1 className="text-lg md:text-3xl font-extrabold mb-4 bg-linear-to-b bg-clip-text text-transparent dark:from-blue-300 dark:to-indigo-600">
+            BeBD - Be Better Developer
+          </h1>
+          <h1 className="text-xl md:text-4xl font-extrabold mb-4 bg-linear-to-b bg-clip-text text-transparent dark:from-blue-300 dark:to-indigo-600">
             Level Up Your Development Skills
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-balance md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Choose a category to find challenging projects with detailed
             implementation plans and resources.
           </p>
         </div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-12" role="tablist" aria-label="Project categories">
           {categories.map((category) => (
             <button
               key={category.id}
+              role="tab"
+              aria-selected={activeCategory === category.id}
+              aria-controls="project-grid"
               onClick={() => setActiveCategory(category.id)}
               className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 ${
                 activeCategory === category.id
@@ -94,7 +100,8 @@ export default function Home() {
         </div>
 
         {/* Projects Grid or Empty State */}
-        {filteredProjects.length === 0 ? (
+        <div id="project-grid" role="tabpanel" aria-labelledby={activeCategory}>
+          {filteredProjects.length === 0 ? (
           <div className="text-center py-20 bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700">
             <div className="text-6xl mb-6 text-gray-300 dark:text-gray-600">
               🚀
@@ -116,6 +123,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      </div>
     </div>
-  );
+  )
 }

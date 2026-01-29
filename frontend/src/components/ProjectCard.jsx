@@ -19,7 +19,7 @@ export default function ProjectCard({ project }) {
   // Get category badge color
   const getCategoryColor = (category) => {
     const colors = {
-      frontend: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
+      frontend: "bg-blue-100 text-white dark:bg-blue-900 dark:text-blue-300",
       backend:
         "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
       fullstack:
@@ -73,9 +73,12 @@ export default function ProjectCard({ project }) {
       </div>
 
       {/* Title */}
-      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 line-clamp-2">
+      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 line-clamp-4">
         {project.title}
       </h3>
+
+      {/* divider  */}
+      <div className="h-px w-[90%] dark:bg-gray-600 mb-2 "></div>
 
       {/* Description */}
       <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">

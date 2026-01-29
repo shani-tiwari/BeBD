@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import AppRoutes from "./routes/AppRoutes";
 import { getProjects } from "./api/project.api";
 import { useState, useEffect } from "react";
@@ -16,9 +17,10 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
+      <main className="pt-24 dark:bg-gray-900 min-h-screen">
         <AppRoutes />
       </main>
+      <Footer />
     </>
   );
 }

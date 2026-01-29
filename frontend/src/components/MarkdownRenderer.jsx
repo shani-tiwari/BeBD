@@ -1,12 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-/**
- * MarkdownRenderer Component
- * Renders markdown content with custom styling
- * @param {string} content - The markdown content to render
- * @param {string} className - Additional CSS classes for the container
- */
 export default function MarkdownRenderer({ content, className = "" }) {
   return (
     <div className={`markdown-container ${className}`}>
