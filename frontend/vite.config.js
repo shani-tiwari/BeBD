@@ -8,9 +8,6 @@ export default defineConfig({
   server: {
     port: 5173,
     host: "0.0.0.0",
-    strictPort: true,
-    tunnel: false,
-    open: false,
   },
   plugins: [
     react(),
@@ -81,4 +78,14 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router"],
+          ui: ["lucide-react"],
+        },
+      },
+    },
+  },
 });

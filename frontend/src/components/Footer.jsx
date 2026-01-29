@@ -53,23 +53,23 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full  border-t border-white/10 dark:border-white/5 relative bg-transparent">
+    <footer className="w-full bg-gray-900 border-t border-white/5 relative ">
       {/* Upper Section */}
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
         {/* Brand Section */}
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-center gap-4 group cursor-default">
             <div
-              className="w-10 h-10 rounded-xl bg-linear-to-b from-primary-500 to-primary-700 flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300"
+              className="w-10 h-10 rounded-xl bg-linear-to-b from-gray-700 to-gray-800  flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300"
               aria-hidden="true"
             >
               ↁ
             </div>
-            <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-b from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-300 dark:to-gray-500">
+            <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-b from-white via-gray-300 to-gray-500">
               BeBD
             </span>
           </div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-sm leading-relaxed">
+          <p className="text-gray-400 max-w-sm leading-relaxed">
             Empowering developers to build better, faster, and more efficient
             modern web applications. Join our community and level up your
             development journey.
@@ -81,7 +81,7 @@ export default function Footer() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-8 w-8 md:w-10 md:h-10 rounded-lg glass flex items-center justify-center text-gray-600 dark:text-gray-800 hover:-translate-y-1 transition-all duration-300"
+                className="h-8 w-8 md:w-10 md:h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-200 hover:-translate-y-1 transition-all duration-300"
                 aria-label={social.label}
               >
                 <social.icon size={20} />
@@ -99,19 +99,19 @@ export default function Footer() {
             aria-label="Visit Webtree (opens in new tab)"
           >
             <div
-              className="w-10 h-10 rounded-xl bg-linear-to-b from-primary-500 to-primary-700 flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300"
+              className="w-10 h-10 rounded-xl bg-linear-to-b from-gray-700 to-gray-800 flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300"
               aria-hidden="true"
             >
               ४
             </div>
-            <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-b from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-300 dark:to-gray-500">
+            <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-b from-white via-gray-300 to-gray-500">
               Webtree{" "}
               <span className="text-pretty rotate-25" aria-hidden="true">
                 ↗
               </span>
             </span>
           </a>
-          <p className="text-gray-600 dark:text-gray-400 max-w-sm leading-relaxed">
+          <p className="text-gray-400 max-w-sm leading-relaxed">
             An Center space for developers where they can find websites for
             frontend resources. Empowering developers to build better, faster,
             and more efficient modern web applications. Join our community and
@@ -121,8 +121,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="max-w-7xl mx-auto px-6 py-8 border-t border-white/10 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-sm text-gray-500 dark:text-gray-500 flex items-center gap-1">
+      <div className="max-w-7xl mx-auto px-6 py-8 border-t border-white/5 flex flex-row justify-between items-center gap-6">
+        <p className="text-sm text-gray-500 flex items-center gap-1">
           © {currentYear} BeBD. Built with{" "}
           <Heart
             size={14}

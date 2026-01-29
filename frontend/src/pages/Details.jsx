@@ -33,12 +33,10 @@ export default function Details() {
   // Loading state
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 px-4 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-900 py-8 px-4 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400">
-            Loading project details...
-          </p>
+          <p className="text-gray-400">Loading project details...</p>
         </div>
       </div>
     );
@@ -47,13 +45,13 @@ export default function Details() {
   // Error state
   if (error) {
     return (
-      <div className="h-screen max-w-[100vw] bg-gray-50 dark:bg-gray-900 py-8 px-4 flex items-center justify-center">
+      <div className="h-screen max-w-[100vw] bg-gray-900 py-8 px-4 flex items-center justify-center">
         <div className="text-center max-w-md">
           <div className="text-red-500 text-5xl mb-4">⚠️</div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+          <h2 className="text-2xl font-bold text-gray-100 mb-2">
             Error Loading Project
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">{error}</p>
+          <p className="text-gray-400 mb-4">{error}</p>
           <button
             onClick={() => navigate(-1)}
             className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -68,9 +66,9 @@ export default function Details() {
   // No project found
   if (!project) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 px-4 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-900 py-8 px-4 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-600 dark:text-gray-400">Project not found</p>
+          <p className="text-gray-400">Project not found</p>
         </div>
       </div>
     );
@@ -79,41 +77,31 @@ export default function Details() {
   // Get category badge color
   const getCategoryColor = (category) => {
     const colors = {
-      frontend: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
-      backend:
-        "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
-      fullstack:
-        "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300",
-      development:
-        "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300",
+      frontend: "bg-blue-900 text-blue-300",
+      backend: "bg-green-900 text-green-300",
+      fullstack: "bg-purple-900 text-purple-300",
+      development: "bg-indigo-900 text-indigo-300",
     };
-    return (
-      colors[category?.toLowerCase()] ||
-      "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-    );
+    return colors[category?.toLowerCase()] || "bg-gray-700 text-gray-300";
   };
 
   // Get difficulty badge color
   const getDifficultyColor = (difficulty) => {
     const colors = {
-      easy: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-300",
-      medium:
-        "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300",
-      hard: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300",
+      easy: "bg-emerald-900 text-emerald-300",
+      medium: "bg-yellow-900 text-yellow-300",
+      hard: "bg-red-900 text-red-300",
     };
-    return (
-      colors[difficulty?.toLowerCase()] ||
-      "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-    );
+    return colors[difficulty?.toLowerCase()] || "bg-gray-700 text-gray-300";
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8 px-4">
+    <div className="min-h-screen bg-gray-900 py-8 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Back button */}
         <button
           onClick={() => navigate(-1)}
-          className="mb-6 flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+          className="mb-6 flex items-center gap-2 text-gray-400 hover:text-gray-100 transition-colors cursor-pointer"
         >
           <svg
             className="w-5 h-5"
@@ -132,7 +120,7 @@ export default function Details() {
         </button>
 
         {/* Main content card */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+        <div className="bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
           {/* Header with badges */}
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span
@@ -147,34 +135,22 @@ export default function Details() {
                 {project.difficulty}
               </span>
             )}
-            {/* {project.likes !== undefined && (
-              <span className="px-3 py-1 rounded-full text-sm bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300 flex items-center gap-1">
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
-                </svg>
-                {project.likes}
-              </span>
-            )} */}
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+          <h1 className="text-4xl font-bold mb-4 text-gray-100">
             {project.title}
           </h1>
 
           {/* Description */}
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8 border-b border-gray-200 dark:border-gray-700 pb-6">
+          <p className="text-lg text-gray-300 leading-relaxed mb-8 border-b border-gray-700 pb-6">
             {project.description}
           </p>
 
           {/* Skills Section */}
           {project.skills && project.skills.length > 0 && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center gap-2">
+              <h2 className="text-2xl font-semibold mb-4 text-gray-100 flex items-center gap-2">
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -194,7 +170,7 @@ export default function Details() {
                 {project.skills.map((skill, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-md text-sm"
+                    className="px-3 py-1 bg-gray-700 text-gray-200 rounded-md text-sm"
                   >
                     {skill}
                   </span>
@@ -206,7 +182,7 @@ export default function Details() {
           {/* Learning Outcomes */}
           {project.learn && project.learn.length > 0 && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center gap-2">
+              <h2 className="text-2xl font-semibold mb-4 text-gray-100 flex items-center gap-2">
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -222,7 +198,7 @@ export default function Details() {
                 </svg>
                 What You'll Learn
               </h2>
-              <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+              <ul className="list-disc list-inside space-y-2 text-gray-300">
                 {project.learn.map((item, index) => (
                   <li key={index} className="ml-4">
                     {item}
@@ -232,12 +208,10 @@ export default function Details() {
             </div>
           )}
 
-          
-
           {/* Implementation Plan */}
           {project.implementationPlan && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center gap-2 border-t border-gray-200 dark:border-gray-700 pt-6">
+              <h2 className="text-2xl font-semibold mb-4 text-gray-100 flex items-center gap-2 border-t border-gray-700 pt-6">
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -253,7 +227,7 @@ export default function Details() {
                 </svg>
                 Implementation Plan
               </h2>
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6">
+              <div className="bg-gray-900 rounded-lg p-6">
                 <MarkdownRenderer content={project.implementationPlan} />
               </div>
             </div>
@@ -262,7 +236,7 @@ export default function Details() {
           {/* Resources Section */}
           {project.resources && project.resources.length > 0 && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center gap-2">
+              <h2 className="text-2xl font-semibold mb-4 text-gray-100 flex items-center gap-2">
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -285,19 +259,17 @@ export default function Details() {
                     href={resource.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                    className="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors"
                   >
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="font-semibold text-gray-900 dark:text-gray-100">
+                        <h3 className="font-semibold text-gray-100">
                           {resource.title}
                         </h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          {resource.type}
-                        </p>
+                        <p className="text-sm text-gray-400">{resource.type}</p>
                       </div>
                       <svg
-                        className="w-5 h-5 text-blue-600 dark:text-blue-400"
+                        className="w-5 h-5 text-blue-400"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

@@ -1,19 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router";
 import { Coffee, Github, Twitter } from "lucide-react";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navLinks = [
     {
@@ -36,16 +27,13 @@ export default function Navbar() {
     },
   ];
 
-  const activeClasses = "text-blue-600 dark:text-blue-400 font-bold";
-  const inactiveClasses =
-    "text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium";
+  const activeClasses = "text-blue-400 font-bold";
+  const inactiveClasses = "text-gray-300 hover:text-blue-400 font-medium";
 
   return (
     <nav
       aria-label="Main navigation"
-      className={`fixed top-4 left-1/2 bg-white/10 backdrop-blur-md -translate-x-1/2 z-50 transition-all duration-300 w-[90%] max-w-5xl rounded-2xl  ${
-        isScrolled ? "py-2 shadow-xl" : "py-2 shadow-lg"
-      }`}
+      className={`fixed top-4 left-1/2 max-w-4xl bg-white/10 backdrop-blur-md -translate-x-1/2 z-50 transition-all duration-300 w-[90%] mx-auto rounded-2xl py-2 shadow-xl`}
     >
       <div className="container mx-auto px-8 flex justify-between items-center">
         {/* Logo */}
@@ -86,7 +74,7 @@ export default function Navbar() {
         <button
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden p-2 text-gray-600 dark:text-gray-300"
+          className="md:hidden p-2 text-gray-300"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg
@@ -117,8 +105,10 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 mt-2 glass rounded-2xl overflow-hidden transition-all duration-300 shadow-2xl ${
-          isMenuOpen ? "max-h-64 py-4" : "max-h-0"
+        className={`md:hidden absolute w-fit top-full right-1 -translate-x-1/2 mt-2 glass rounded-2xl overflow-hidden backdrop-blur-2xl transition-all duration-300 shadow-2xl ${
+          isMenuOpen
+            ? "max-h-64 py-4 opacity-100 visible"
+            : "max-h-0 opacity-0 invisible"
         }`}
       >
         <div className="flex flex-col items-center px-6 gap-6">
@@ -133,11 +123,10 @@ export default function Navbar() {
               className={`text-lg transition-colors duration-200 flex items-center gap-3 ${
                 location.pathname === link.path
                   ? "text-blue-600 font-bold"
-                  : "text-gray-800 dark:text-gray-100"
+                  : "text-gray-100"
               }`}
             >
               {link.icon}
-              <span className="font-medium">{link.label}</span>
             </a>
           ))}
         </div>

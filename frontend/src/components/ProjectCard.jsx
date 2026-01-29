@@ -19,32 +19,22 @@ export default function ProjectCard({ project }) {
   // Get category badge color
   const getCategoryColor = (category) => {
     const colors = {
-      frontend: "bg-blue-100 text-white dark:bg-blue-900 dark:text-blue-300",
-      backend:
-        "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
-      fullstack:
-        "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300",
-      development:
-        "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300",
+      frontend: "bg-blue-900 text-blue-300",
+      backend: "bg-green-900 text-green-300",
+      fullstack: "bg-purple-900 text-purple-300",
+      development: "bg-indigo-900 text-indigo-300",
     };
-    return (
-      colors[category?.toLowerCase()] ||
-      "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-    );
+    return colors[category?.toLowerCase()] || "bg-gray-700 text-gray-300";
   };
 
   // Get difficulty badge color
   const getDifficultyColor = (difficulty) => {
     const colors = {
-      easy: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-300",
-      medium:
-        "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300",
-      hard: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300",
+      easy: "bg-emerald-900 text-emerald-300",
+      medium: "bg-yellow-900 text-yellow-300",
+      hard: "bg-red-900 text-red-300",
     };
-    return (
-      colors[difficulty?.toLowerCase()] ||
-      "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-    );
+    return colors[difficulty?.toLowerCase()] || "bg-gray-700 text-gray-300";
   };
 
   const handleClick = () => {
@@ -54,7 +44,7 @@ export default function ProjectCard({ project }) {
   return (
     <div
       onClick={handleClick}
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transform hover:-translate-y-1"
+      className="bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer p-6 border border-gray-700 hover:border-blue-400 transform hover:-translate-y-1"
     >
       {/* Header with badges */}
       <div className="flex items-center justify-between mb-3">
@@ -73,21 +63,21 @@ export default function ProjectCard({ project }) {
       </div>
 
       {/* Title */}
-      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 line-clamp-4">
+      <h3 className="text-xl font-bold text-gray-100 mb-3 line-clamp-4">
         {project.title}
       </h3>
 
       {/* divider  */}
-      <div className="h-px w-[90%] dark:bg-gray-600 mb-2 "></div>
+      <div className="h-px w-[90%] bg-gray-600 mb-2 "></div>
 
       {/* Description */}
-      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+      <p className="text-gray-400 text-sm leading-relaxed mb-4">
         {truncateText(project.description)}
       </p>
 
       {/* Footer with skills count */}
       {project.skills && project.skills.length > 0 && (
-        <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+        <div className="flex items-center gap-2 text-xs text-gray-400">
           <svg
             className="w-4 h-4"
             fill="none"
