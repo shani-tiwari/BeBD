@@ -14,7 +14,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: "autoUpdate",
-      devOptions: { enabled: true },
+      devOptions: { enabled: false },
       manifest: {
         name: "BeBD",
         short_name: "BeBD",

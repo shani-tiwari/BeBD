@@ -7,6 +7,8 @@ import {
   Heart,
   Dribbble,
   Instagram,
+  ChartSpline,
+  CircleArrowOutUpRight,
 } from "lucide-react";
 import { Link } from "react-router";
 
@@ -55,12 +57,13 @@ export default function Footer() {
   return (
     <footer className="w-full bg-gray-900 border-t border-white/5 relative ">
       {/* Upper Section */}
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
         {/* Brand Section */}
+        {/* bebd */}
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-center gap-4 group cursor-default">
             <div
-              className="w-10 h-10 rounded-xl bg-linear-to-b from-gray-700 to-gray-800  flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300"
+              className="w-10 h-10 rounded-xl bg-linear-to-b from-gray-700 to-gray-800  flex items-center justify-center text-white font-semibold text-xl group-hover:scale-110 transition-transform duration-300"
               aria-hidden="true"
             >
               ↁ
@@ -70,6 +73,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="text-gray-400 max-w-sm leading-relaxed">
+            <strong>Be Better Developer</strong> <br />
             Empowering developers to build better, faster, and more efficient
             modern web applications. Join our community and level up your
             development journey.
@@ -81,15 +85,18 @@ export default function Footer() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-8 w-8 md:w-10 md:h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-200 hover:-translate-y-1 transition-all duration-300"
+                className="group relative h-8 w-8 md:w-10 md:h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-200 hover:-translate-y-1 border-2 border-white/20 transition-all duration-300"
                 aria-label={social.label}
               >
                 <social.icon size={20} />
+                <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-max px-2 py-1 bg-gray-800 border border-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
+                  {social.label}
+                </span>
               </a>
             ))}
           </div>
         </div>
-
+        {/* upcoming */}
         <div className="lg:col-span-2 space-y-6">
           <a
             href="https://webtree-iota.vercel.app"
@@ -98,24 +105,52 @@ export default function Footer() {
             className="flex items-center gap-4 group cursor-pointer"
             aria-label="Visit Webtree (opens in new tab)"
           >
-            <div
-              className="w-10 h-10 rounded-xl bg-linear-to-b from-gray-700 to-gray-800 flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300"
+            <span
+              className="w-10 h-10 rounded-xl bg-linear-to-b from-gray-700 to-gray-800  flex items-center justify-center text-white font-semibold text-xl group-hover:scale-110 transition-transform duration-300"
               aria-hidden="true"
             >
-              ४
-            </div>
+              <ChartSpline size={16} />
+            </span>
             <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-b from-white via-gray-300 to-gray-500">
-              Webtree{" "}
-              <span className="text-pretty rotate-25" aria-hidden="true">
-                ↗
-              </span>
+              Upcoming
             </span>
           </a>
           <p className="text-gray-400 max-w-sm leading-relaxed">
-            An Center space for developers where they can find websites for
-            frontend resources. Empowering developers to build better, faster,
-            and more efficient modern web applications. Join our community and
-            level up your development journey.
+            - New Categories <br />
+            - Interview Practice <br />
+            - Weekly New Projects <br />
+            - Create Personal Collection <br />
+          </p>
+        </div>
+        {/* webtree */}
+        <div className="lg:col-span-2 space-y-6">
+          <a
+            href="https://webtree-iota.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 group cursor-pointer"
+            aria-label="Visit Webtree (opens in new tab)"
+          >
+            <span
+              className="w-10 h-10 rounded-xl bg-linear-to-b from-gray-700 to-gray-800  flex items-center justify-center text-white font-semibold text-xl group-hover:scale-110 transition-transform duration-300"
+              aria-hidden="true"
+            >
+              ४
+            </span>
+            <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-b from-white via-gray-300 to-gray-500">
+              Webtree
+            </span>
+            <span className="text-gray-300">
+              <CircleArrowOutUpRight style={{ font: "white" }} size={16} />
+            </span>
+          </a>
+          <p className="text-gray-400 max-w-sm leading-relaxed">
+            One-stop for frontend magic—curated collections 
+            of design inspiration sites, free fonts, stock images, UI kits, icons, animations, 
+            and essential tools.  <br />
+            Whether you're hunting for Tailwind components, Framer prototypes, 
+            or color palettes, discover everything to supercharge your React, Next.js, or vanilla 
+            projects in seconds.
           </p>
         </div>
       </div>
@@ -125,7 +160,7 @@ export default function Footer() {
         <p className="text-sm text-gray-500 flex items-center gap-1">
           © {currentYear} BeBD. Built with{" "}
           <Heart
-            size={14}
+            size={18}
             className="text-red-500 animate-pulse"
             aria-hidden="true"
           />

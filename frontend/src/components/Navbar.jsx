@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router";
-import { Coffee, Github, Twitter } from "lucide-react";
+import {
+  Coffee,
+  Github,
+  MessageCircleQuestionMark,
+  Twitter,
+} from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,21 +14,27 @@ export default function Navbar() {
   const navLinks = [
     {
       name: "Support my work",
-      label: "Buy me a coffee",
+      label: "🍵coffee for me",
       icon: <Coffee size={22} />,
       path: "https://buymeacoffee.com/shani_tiwari?new=1",
     },
     {
       name: "Follow on Twitter",
-      label: "Follow on X",
+      label: "📢Follow on X",
       icon: <Twitter size={22} />,
       path: "https://x.com/ShaniDevelops",
     },
     {
       name: "GitHub Repository",
-      label: "View source on GitHub",
+      label: "Star me  ⭐⭐",
       icon: <Github size={22} />,
       path: "https://github.com/shani-tiwari/BeBD-be_better_developer",
+    },
+    {
+      name: "Share your thought",
+      label: "What's the feedback⁉️",
+      icon: <MessageCircleQuestionMark size={22} />,
+      path: "https://x.com/messages/compose?recipient_id=2016695951449284609&text=Hey%20Shani,%20here%20is%20my%20thought%20about%20BeBD",
     },
   ];
 
@@ -33,9 +44,13 @@ export default function Navbar() {
   return (
     <nav
       aria-label="Main navigation"
-      className={`fixed top-4 left-1/2 max-w-4xl bg-white/10 backdrop-blur-md -translate-x-1/2 z-50 transition-all duration-300 w-[90%] mx-auto rounded-2xl py-2 shadow-xl`}
+      className={`h-fit w-full flex justify-center `}
     >
-      <div className="container mx-auto px-8 flex justify-between items-center">
+      <div
+        className="container md:max-w-4xl fixed top-4 w-[70%] bg-white/10 mx-auto z-50 
+      flex justify-between items-center  backdrop-blur-sm py-1 md:py-[10px] px-4 md:px-6 rounded-xl
+      shadow-sm shadow-white/20 ring-2 ring-white/20 "
+      >
         {/* Logo */}
         <Link
           to="/"
@@ -43,7 +58,7 @@ export default function Navbar() {
           className="flex items-center justify-center gap-2 group"
         >
           <div
-            className="flex items-center justify-center text-white text-3xl font-black transition-transform duration-300"
+            className="flex items-center justify-center text-white text-2xl  transition-transform duration-300"
             aria-hidden="true"
           >
             ↁ
@@ -59,13 +74,16 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.label}
-              className={` transition-all duration-300 hover:scale-110 ${
+              className={`group relative transition-all duration-200 hover:scale-110 ${
                 location.pathname === link.path
                   ? activeClasses
                   : inactiveClasses
               }`}
             >
               {link.icon}
+              <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-max px-2 py-1 bg-white/10 backdrop-blur-md border border-white/10 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                {link.label}
+              </span>
             </a>
           ))}
         </div>
@@ -105,13 +123,13 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute w-fit top-full right-1 -translate-x-1/2 mt-2 glass rounded-2xl overflow-hidden backdrop-blur-2xl transition-all duration-300 shadow-2xl ${
+        className={`md:hidden absolute w-fit top-16 right-8 mt-2 rounded-2xl bg-black/20 backdrop-blur-2xl border border-white/10 overflow-hidden transition-all duration-300 ${
           isMenuOpen
             ? "max-h-64 py-4 opacity-100 visible"
             : "max-h-0 opacity-0 invisible"
         }`}
       >
-        <div className="flex flex-col items-center px-6 gap-6">
+        <div className="flex flex-col items-center px-6 gap-6 ">
           {navLinks.map((link) => (
             <a
               key={link.path}

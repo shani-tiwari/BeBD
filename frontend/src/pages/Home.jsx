@@ -66,9 +66,6 @@ export default function Home() {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-lg md:text-3xl font-bold bg-white/10 rounded-3xl border-px border-white/40 mb-4 bg-linear-to-b bg-clip-text text-transparent from-blue-300 to-indigo-600">
-            BeBD - Be Better Developer
-          </h1>
           <h1 className="text-xl md:text-4xl font-extrabold mb-4 bg-linear-to-b bg-clip-text text-transparent from-blue-300 to-indigo-600">
             Level Up Your Development Skills
           </h1>

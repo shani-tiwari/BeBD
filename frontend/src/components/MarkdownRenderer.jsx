@@ -32,13 +32,13 @@ export default function MarkdownRenderer({ content, className = "" }) {
           // Custom styling for lists
           ul: ({ ...props }) => (
             <ul
-              className="list-disc list-inside mb-4 space-y-2 text-gray-300"
+              className="list-disc pl-5 mb-4 space-y-2 text-gray-300"
               {...props}
             />
           ),
           ol: ({ ...props }) => (
             <ol
-              className="list-decimal list-inside mb-4 space-y-2 text-gray-300"
+              className="list-decimal pl-5 mb-4 space-y-2 text-gray-300"
               {...props}
             />
           ),
