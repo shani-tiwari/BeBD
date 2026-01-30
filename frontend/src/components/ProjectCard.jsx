@@ -45,7 +45,7 @@ export default function ProjectCard({ project }) {
     <div
       onClick={handleClick}
       className="bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 shadow-blue-800/10
-      cursor-pointer p-6 border border-gray-700 hover:border-blue-500/20 transform hover:-translate-y-1"
+      cursor-pointer p-6 border border-gray-700 hover:border-blue-500/20 transform hover:-translate-y-1 select-none"
     >
       {/* Header with badges */}
       <div className="flex items-center justify-between mb-3">
