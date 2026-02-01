@@ -16,8 +16,8 @@ app.use(
   cors({
     origin: [
       "https://bebd.vercel.app",
-      "http://localhost:5173",
-      "http://localhost:3000",
+      "https://be-bd-be-better-developer-8cf31fgzz.vercel.app",
+      "*"
     ],
     credentials: true,
   }),
