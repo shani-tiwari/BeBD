@@ -5,8 +5,7 @@ export const uploadImage = async (file) => {
   try {
     const { data } = await api.get("/auth/imagekit");
 
-    const API_URL =
-      import.meta.env.VITE_API_URL || "https://bebd.vercel.app/api/v1";
+    const API_URL = "https://bebd.vercel.app/api/v1";
     const ik = new Imagekit({
       publicKey: import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY,
       urlEndpoint: import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT,
