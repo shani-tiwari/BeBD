@@ -8,16 +8,20 @@ const errorMiddleware = require("./middleware/error.middleware");
 const passport = require("passport");
 const { googleAuth } = require("./controller/auth.controller");
 
-
-
 // Initialize Google strategy
 googleAuth();
 
 // middleware
-app.use(cors({
-  origin: "https://bebd.vercel.app/api/v1",
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: [
+      "https://bebd.vercel.app",
+      "http://localhost:5173",
+      "http://localhost:3000",
+    ],
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use(cookieParser());
 app.use(passport.initialize());
@@ -25,7 +29,5 @@ app.use("/api/v1", authRoutes);
 app.use("/api/v1", projectRoutes);
 
 app.use(errorMiddleware);
-
-
 
 module.exports = app;

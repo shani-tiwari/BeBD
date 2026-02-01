@@ -10,9 +10,9 @@ connectToDB();
 //   console.log(`Server running on port ${PORT}`);
 // });
 
-app.get("/Hello", (req, res) => {
-  console.log('deployed');
-  res.json({msg:`Server running on Vercel`});
+app.get("/api/Hello", (req, res) => {
+  console.log("deployed");
+  res.json({ msg: `Server running on Vercel` });
 });
 
 module.exports = app;
