@@ -15,7 +15,7 @@ googleAuth();
 
 // middleware
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://bebd.vercel.app/api/v1",
   credentials: true,
 }));
 app.use(express.json());
