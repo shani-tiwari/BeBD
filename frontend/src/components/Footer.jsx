@@ -119,7 +119,8 @@ export default function Footer() {
             - New Categories <br />
             - Interview Practice <br />
             - Weekly New Projects <br />
-            - Create Personal Collection <br />
+            - Personal Collection <br />
+            - Video Recommandations <br />
           </p>
         </div>
         {/* webtree */}
