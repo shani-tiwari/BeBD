@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
- const api = axios.create({
-    baseURL: 'https://bebd.vercel.app/api/v1',
-    withCredentials: true
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || "https://bebd.vercel.app/api/v1",
+  withCredentials: true,
 });
 
 export default api;
