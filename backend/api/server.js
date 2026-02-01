@@ -11,6 +11,7 @@ connectToDB();
 // });
 
 app.get("/Hello", (req, res) => {
+  console.log('deployed');
   res.json({msg:`Server running on Vercel`});
 });
 
