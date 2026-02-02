@@ -15,9 +15,8 @@ googleAuth();
 app.use(
   cors({
     origin: [
-      "https://bebd.vercel.app",
+      "https://bebd-be-better-developer.vercel.app/",
       "https://be-bd-be-better-developer-8cf31fgzz.vercel.app",
-      "https://bebd-be-better-developer.vercel.app/"
     ],
     credentials: true,
   }),
