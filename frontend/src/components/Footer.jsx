@@ -147,11 +147,9 @@ export default function Footer() {
           </a>
           <p className="text-gray-400 max-w-sm leading-relaxed">
             One-stop for frontend magic—curated collections 
-            of design inspiration sites, free fonts, stock images, UI kits, icons, animations, 
-            and essential tools.  <br />
+            of 85+ websites, and essential tools.  <br />
             Whether you're hunting for Tailwind components, Framer prototypes, 
-            or color palettes, discover everything to supercharge your React, Next.js, or vanilla 
-            projects in seconds.
+            or color palettes, discover everything to supercharge your projects in seconds.
           </p>
         </div>
       </div>
