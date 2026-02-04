@@ -123,7 +123,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute w-fit top-16 right-14 mt-2 rounded-2xl bg-black/20 backdrop-blur-2xl border border-white/10 overflow-hidden transition-all duration-300 ${
+        className={`md:hidden absolute w-fit top-16 right-18 mt-2 rounded-2xl bg-black/20 backdrop-blur-2xl border border-white/10 overflow-hidden transition-all duration-300 ${
           isMenuOpen
             ? "max-h-64 py-4 opacity-100 visible"
             : "max-h-0 opacity-0 invisible"
