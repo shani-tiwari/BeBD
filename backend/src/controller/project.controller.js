@@ -145,7 +145,7 @@ const updateProject = async (req, res, next) => {
     const { id } = req.params;
     const { likes, likedBy, createdBy, isDeleted, ...updateData } = req.body;
 
-    const Project = await ProjectModel.findOneAndUpdate(
+    const Project = await ProjectModel.findOneAndUpdate(  
       { _id: id, isDeleted: false },
       updateData,
       { new: true, runValidators: true },

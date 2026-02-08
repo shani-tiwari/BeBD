@@ -10,7 +10,6 @@ router.post("/auth/signup", registerUser);
 router.post("/auth/login", loginUser);
 
 // OAuth
-// OAuth
 router.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] }),

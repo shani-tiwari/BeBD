@@ -18,12 +18,12 @@ export default function Navbar() {
       icon: <Coffee size={22} />,
       path: "https://buymeacoffee.com/shani_tiwari?new=1",
     },
-    {
-      name: "Follow on Twitter",
-      label: "📢Follow on X",
-      icon: <Twitter size={22} />,
-      path: "https://x.com/ShaniDevelops",
-    },
+    // {
+    //   name: "Follow on Twitter",
+    //   label: "📢Follow on X",
+    //   icon: <Twitter size={22} />,
+    //   path: "https://x.com/ShaniDevelops",
+    // },
     {
       name: "GitHub Repository",
       label: "Star me  ⭐⭐",
