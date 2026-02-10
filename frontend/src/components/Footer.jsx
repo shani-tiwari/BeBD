@@ -126,7 +126,7 @@ export default function Footer() {
         {/* webtree */}
         <div className="lg:col-span-2 space-y-6">
           <a
-            href="https://webtree-iota.vercel.app"
+            href="https://webtree-v1.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-4 group cursor-pointer"
