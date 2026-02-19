@@ -6,7 +6,7 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main className="pt-20 bg-gray-900 min-h-screen">
+      <main className="pt-20 w-full bg-gray-900 min-h-screen">
         <AppRoutes />
       </main>
       <Footer />

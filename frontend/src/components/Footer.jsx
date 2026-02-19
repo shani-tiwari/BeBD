@@ -40,12 +40,12 @@ export default function Footer() {
       url: "mailto:shanitiwarifl@gmail.com",
       label: "Send me an email",
     },
-    {
-      name: "Dribbble",
-      icon: Dribbble,
-      url: "https://dribbble.com/shani-tiwari",
-      label: "My Dribbble portfolio",
-    },
+    // {
+    //   name: "Dribbble",
+    //   icon: Dribbble,
+    //   url: "https://dribbble.com/shani-tiwari",
+    //   label: "My Dribbble portfolio",
+    // },
     {
       name: "Instagram",
       icon: Instagram,
@@ -55,12 +55,18 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-gray-900 border-t border-white/5 relative ">
+    <footer id="about" className="w-full bg-gray-900 border-t border-white/5 relative ">
+
+      <div className="px-6 md:px-0 max-w-3xl md:ml-34 py-4">
+        <p className="text-neutral-200 text-2xl font-semibold tracking-wide">About</p>
+        <p className="h-[0.2px] w-full md:w-[87%] bg-neutral-600 rounded-full mt-4"></p>
+      </div>
+
       {/* Upper Section */}
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
+      <div className="max-w-7xl mx-auto px-4 pt-10 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-12 md:gap-8">
         {/* Brand Section */}
         {/* bebd */}
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-5">
           <div className="flex items-center gap-4 group cursor-default">
             <div
               className="w-10 h-10 rounded-xl bg-linear-to-b from-gray-700 to-gray-800  flex items-center justify-center text-white font-semibold text-xl group-hover:scale-110 transition-transform duration-300"
@@ -68,28 +74,28 @@ export default function Footer() {
             >
               ↁ
             </div>
-            <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-b from-white via-gray-300 to-gray-500">
+            <span className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-b from-white via-gray-300 to-gray-500 tracking-wide">
               BeBD
             </span>
           </div>
           <p className="text-gray-400 max-w-sm leading-relaxed">
-            <strong>Be Better Developer</strong> <br />
+            <strong className="tracking-wider">Be Better Developer</strong> <br />
             Empowering developers to build better, faster, and more efficient
             modern web applications. Join our community and level up your
             development journey.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 justify-around">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative h-8 w-8 md:w-10 md:h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-200 hover:-translate-y-1 border-2 border-white/20 transition-all duration-300"
+                className="group relative px-3 py-2 md:px-3 rounded-lg bg-gray-950/70 flex items-center justify-center text-gray-200 hover:-translate-y-1 border-2 border-white/20 transition-all duration-300"
                 aria-label={social.label}
               >
-                <social.icon size={20} />
-                <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-max px-2 py-1 bg-gray-800 border border-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
+                <social.icon size={22} />
+                <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-max px-2 py-1 bg-gray-950/80 border border-white/30 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
                   {social.label}
                 </span>
               </a>
@@ -97,7 +103,7 @@ export default function Footer() {
           </div>
         </div>
         {/* upcoming */}
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-5 md:ml-20">
           <a
             href="https://webtree-iota.vercel.app"
             target="_blank"
@@ -115,37 +121,46 @@ export default function Footer() {
               Upcoming
             </span>
           </a>
-          <p className="text-gray-400 max-w-sm leading-relaxed">
-            - New Categories <br />
-            - Interview Practice <br />
-            - Weekly New Projects <br />
-            - Personal Collection <br />
-            - Video Recommandations <br />
+          <p className="text-gray-400 max-w-sm leading-relaxed tracking-wide ml-2">
+            → New Categories <br />
+            → Interview Practice <br />
+            → Weekly New Projects <br />
+            → Personal Collection <br />
+            → Video Recommandations <br />
           </p>
         </div>
+
+        <span className="md:w-px md:h-[250px] h-px w-full bg-neutral-600 rounded-full "></span>
+
         {/* webtree */}
-        <div className="lg:col-span-2 space-y-6">
-          <a
-            href="https://webtree-v1.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-4 group cursor-pointer"
-            aria-label="Visit Webtree (opens in new tab)"
-          >
-            <span
-              className="w-10 h-10 rounded-xl bg-linear-to-b from-gray-700 to-gray-800  flex items-center justify-center text-white font-semibold text-xl group-hover:scale-110 transition-transform duration-300"
-              aria-hidden="true"
+        <div className="lg:col-span-2 space-y-5 md:-ml-22">
+          <div className="flex justify-between items-center">
+            <a
+              href="https://webtree-v1.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 group cursor-pointer"
+              aria-label="Visit Webtree (opens in new tab)"
             >
-              ४
-            </span>
-            <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-b from-white via-gray-300 to-gray-500">
-              Webtree
-            </span>
-            <span className="text-gray-300">
-              <CircleArrowOutUpRight style={{ font: "white" }} size={16} />
-            </span>
-          </a>
-          <p className="text-gray-400 max-w-sm leading-relaxed">
+              <span
+                className="w-10 h-10 rounded-xl bg-linear-to-b from-gray-700 to-gray-800  flex items-center justify-center text-white font-semibold text-xl group-hover:scale-110 transition-transform duration-300"
+                aria-hidden="true"
+              >
+                ४
+              </span>
+              <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-b from-white via-gray-300 to-gray-500">
+                Webtree
+              </span>
+              <span className="text-gray-300/70 mt-1">
+                <CircleArrowOutUpRight style={{ font: "white" }} size={16} />
+              </span>
+            </a>
+            <Link to={'https://github.com/shani-tiwari/webtree'} target="_blank" 
+            className="text-neutral-300 md:mr-12 bg-gray-950/70 px-3 py-[6px] rounded-lg border-2 border-white/30 hover:-translate-y-1 transition-all duration-300"> 
+              <Github size={22} /> 
+            </Link >
+          </div>
+          <p className="text-gray-400 max-w-sm leading-relaxed tracking-wide">
             One-stop for frontend magic—curated collections 
             of 85+ websites, and essential tools.  <br />
             Whether you're hunting for Tailwind components, Framer prototypes, 
@@ -167,9 +182,6 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 -z-10 w-64 h-64 bg-primary-500/5 blur-[100px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 -z-10 w-96 h-96 bg-primary-700/5 blur-[120px] rounded-full pointer-events-none" />
     </footer>
   );
 }

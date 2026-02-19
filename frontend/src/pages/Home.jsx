@@ -62,8 +62,8 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen max-w-[100vw]  bg-gray-900 py-12 px-4 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-[50vh] w-full bg-gray-900 py-12 px-4 transition-colors duration-300">
+      <div className="max-w-full mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-xl md:text-4xl font-extrabold mb-4 bg-linear-to-b bg-clip-text text-transparent from-blue-300 to-indigo-600">
