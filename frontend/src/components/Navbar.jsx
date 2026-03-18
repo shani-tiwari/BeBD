@@ -186,7 +186,7 @@ export default function Navbar() {
             </p>
             <div className="flex justify-between items-center">
               <a
-                href="https://webtree-v1.vercel.app"
+                href="https://webtree.shaniweb.com"
                 target="_blank"
                 className="text-zinc-300 text-xl tracking-wider flex items-center gap-3 "
               >

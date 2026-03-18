@@ -136,7 +136,7 @@ export default function Footer() {
         <div className="lg:col-span-2 space-y-5 md:-ml-22">
           <div className="flex justify-between items-center">
             <a
-              href="https://webtree-v1.vercel.app"
+              href="https://webtree.shaniweb.com"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 group cursor-pointer"
