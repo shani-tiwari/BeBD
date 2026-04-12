@@ -49,7 +49,7 @@ export default function Footer() {
     {
       name: "Instagram",
       icon: Instagram,
-      url: "https://Instagram.com/shanidevelops",
+      url: "https://Instagram.com/shani.develops",
       label: "Follow on Instagram",
     },
   ];
